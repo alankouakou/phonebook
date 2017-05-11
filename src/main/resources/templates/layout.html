@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html >
+<meta charset="UTF-8"></meta>
+<head>
+<!--/*  Each token will be replaced by their respective titles in the resulting page. */-->
+<title layout:title-pattern=" $LAYOUT_TITLE - $CONTENT_TITLE">AAS</title>
+  <link rel="stylesheet" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}" />
+  <!-- Font Awesome -->
+  <link rel="stylesheet" th:href="@{/webjars/font-awesome/css/font-awesome.min.css}" />
+  <!-- Ionicons -->
+  <link rel="stylesheet" th:href="@{/webjars/ionicons/css/ionicons.min.css}" />
+  <!-- jvectormap -->
+  <link rel="stylesheet" th:href="@{/webjars/jvectormap/jquery-jvectormap.css}" />
+  <!-- Theme style -->
+  <link rel="stylesheet" th:href="@{/webjars/AdminLTE/dist/css/AdminLTE.min.css}" />
+  <!-- AdminLTE Skins. Choose a skin from the css/skins
+       folder instead of downloading all of them to reduce the load. -->
+  <link rel="stylesheet" th:href="@{/webjars/AdminLTE/dist/css/skins/skin-red.min.css}" />
+</head>
+<body>
+	<nav th:replace="fragments/header::header"></nav>
+	<div class="jumbotron">
+
+		<div class="container-fluid">
+			<h2>Annuaire téléphonique Allianz Africa Services</h2>
+		</div>
+
+	</div>
+	<div layout:fragment="content">
+		<p>contenu a remplacer</p>
+	</div>
+
+	<div th:replace="fragments/footer::footer"></div>
+<script th:src="@{/webjars/jquery/jquery.min.js}"></script>	
+<script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+</body>
+</html>

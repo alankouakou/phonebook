@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<meta charset="UTF-8"></meta>
+<head th:replace="fragments/header::head">
+</head>
+<body>
+	<nav th:replace="fragments/header::header"></nav>
+	<div class="jumbotron">
+
+		<div class="container-fluid">
+			<h2>Gestion des exceptions </h2>
+		</div>
+
+	</div>
+	<div class="container-fluid">
+		<div class="col-lg-9">
+			<p th:text="${message}">  Exception</p>
+		</div>
+	</div>
+
+	<div th:replace="fragments/footer::footer"></div>
+
+</body>
+</html>

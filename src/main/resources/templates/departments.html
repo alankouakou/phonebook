@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{layout}">
+<meta charset="UTF-8"></meta>
+<head>
+<title>Départements</title>
+</head>
+<body>
+	<div class="container-fluid">
+		<div layout:fragment="content">
+			<!-- 	<button type="button" class="btn btn-md btn-warning" data-toggle="modal"
+			data-target="#myModal">
+			Nouveau département <span class="glyphicon glyphicon-plus"></span>
+		</button>
+ -->
+			<a href="#" th:href="@{/departements/new}"
+				class="btn btn-md btn-warning">Nouveau département <span
+				class="glyphicon glyphicon-plus"></span></a>
+			<!-- Modal -->
+			<form action="#" class="form-horizontal" th:object="${dept}"
+				th:action="@{/departements/add}" method="POST">
+				<div class="modal fade" id="myModal" tabindex="-1" role="dialog"
+					aria-labelledby="myModalLabel">
+					<div class="modal-dialog" role="document">
+						<div class="modal-content">
+							<div class="modal-header">
+								<button type="button" class="close" data-dismiss="modal"
+									aria-label="Close">
+									<span aria-hidden="true">&times;</span>
+								</button>
+								<h4 class="modal-title" id="myModalLabel">Nouveau
+									Département</h4>
+							</div>
+							<div class="modal-body">
+								<div class="form-group">
+									<label for="name" class="col-sm-4 control-label">Nom:</label>
+									<div class="col-sm-4">
+										<input th:field="*{name}" id="name" class="form-control"
+											placeholder="Nom département" />
+									</div>
+									<span class="col-sm-4" th:if="${#fields.hasErrors('name')}"
+										th:errors="*{name}"> Erreur sur le nom</span>
+								</div>
+							</div>
+							<div class="modal-footer">
+								<button type="button" class="btn btn-default"
+									data-dismiss="modal">Fermer</button>
+								<button type="submit" class="btn btn-primary">Enregistrer</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</form>
+			<div class="col-lg-9">
+				<table class="table table-striped table-hover">
+					<thead>
+						<tr>
+							<th>ID</th>
+							<th>Département</th>
+							<th>Actions</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr th:each="d:${departements}">
+							<td><span th:text="${d.id}"></span></td>
+							<td><span th:text="${d.name}"></span></td>
+							<td>
+								<div class="btn-group">
+									<button type="button" class="btn btn-xs btn-info">Details</button>
+									<button type="button"
+										class="btn btn-xs btn-info dropdown-toggle"
+										data-toggle="dropdown" aria-haspopup="true"
+										aria-expanded="false">
+										<span class="caret"></span> <span class="sr-only">Toggle
+											Dropdown</span>
+									</button>
+									<ul class="dropdown-menu">
+										<li><a href="#"
+											th:href="@{'/departements/edit/'+${d.id}}"><span
+												class="glyphicon glyphicon-edit"></span> Modifier</a></li>
+										<li><a href="#"
+											th:href="@{'/departements/delete/'+${d.id}}"><span
+												class="glyphicon glyphicon-remove"></span> Supprimer</a></li>
+									</ul>
+								</div>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

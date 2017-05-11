@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{layout}">
+<meta charset="UTF-8"></meta>
+<head >
+<title>Mise à jour empployé</title>
+</head>
+<body>
+
+	<div class="container" layout:fragment="content">
+		<div class="row">
+		<form action="#" class="form-horizontal well" th:object="${employee}"
+			th:action="@{/employees/edit}" method="POST">
+				<div th:if="${#fields.hasErrors('nom')}"
+					class="alert alert-warning" role="alert">
+					<span th:errors="*{nom}"> </span>
+				</div>
+							<div class="form-group">
+								<label for="id" class="col-sm-4 control-label">ID:</label>
+								<div class="col-sm-4">
+									<input type="hidden" th:field="*{id}" class="form-control" />
+									<input th:field="*{id}" id="id" class="form-control" disabled="true" />
+								</div>
+							</div>			
+							<div class="form-group">
+								<label for="nom" class="col-sm-4 control-label">Nom:</label>
+								<div class="col-sm-4">
+									<input th:field="*{nom}" id="nom" class="form-control"
+										placeholder="Nom" />
+								</div>
+							</div>
+
+							<div class="form-group">
+								<label for="prenom" class="col-sm-4 control-label">Prenom:</label>
+								<div class="col-sm-4">
+									<input th:field="*{prenom}" id="prenom" class="form-control"
+										placeholder="Prenom" />
+								</div>
+							</div>
+							<div class="form-group">
+								<label for="numerocourt" class="col-sm-4 control-label">Numero
+									court:</label>
+								<div class="col-sm-4">
+									<input th:field="*{numeroCourt}" id="numerocourt"
+										class="form-control" placeholder="Numero court" />
+								</div>
+							</div>
+							<div class="form-group">
+								<label for="numerolong" class="col-sm-4 control-label">Numero
+									long:</label>
+								<div class="col-sm-4">
+									<input th:field="*{numeroLong}" id="numerolong"
+										class="form-control" placeholder="Numero long" />
+								</div>
+							</div>
+							<div class="form-group">
+								<label for="portable" class="col-sm-4 control-label">Portable:</label>
+								<div class="col-sm-4">
+									<input th:field="*{portable}" id="portable"
+										class="form-control" placeholder="Portable" />
+								</div>
+							</div>
+							<div class="form-group">
+								<label for="departement" class="col-sm-4 control-label">Département:</label>
+								<div class="col-sm-4">
+									<select class="form-control" th:field="*{departement}">
+										<option th:each="dept : ${departements}" th:value="${dept.id}"
+											th:text="${dept.name}">department</option>
+									</select>
+								</div>
+							</div>
+						<div class="form-group">
+						<div class="col-sm-offset-4 col-sm-4">
+							<button type="reset" class="btn btn-default ">Annuler</button>
+							<button type="submit" class="btn btn-success ">Enregistrer les modifications</button>
+						</div>
+						</div>
+
+		</form>
+		</div>
+	</div>
+
+	<div th:replace="fragments/footer::footer"></div>
+
+</body>
+</html>

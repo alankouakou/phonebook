@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{layout}">
+<meta charset="UTF-8"></meta>
+<head >
+<title>Nouveau departement</title>
+</head>
+<body>
+
+	<div class="container" layout:fragment="content">
+		<div class="row">
+		<form action="#" class="form-horizontal well" th:object="${department}"
+			th:action="@{/departements/save}" method="POST">
+				<div class="form-group">
+								<label for="id" class="col-sm-4 control-label">ID:</label>
+								<div class="col-sm-4">
+								<input th:field="*{id}" type="hidden" />
+									<input th:field="*{id}" id="id" class="form-control disabled" disabled="true" />
+								</div>
+							</div>			
+							<div class="form-group" th:classappend="${#fields.hasErrors('name')}?error:success">
+								<label for="nom" class="col-sm-4 control-label">Nom:</label>
+								<div class="col-sm-4">
+									<input th:field="*{name}" id="name" class="form-control"
+										placeholder="Nom du département" />
+								</div>
+								
+							</div>
+						<div class="form-group">
+						<div class="col-sm-offset-4 col-sm-4">
+							<button type="reset" class="btn btn-default ">Annuler</button>
+							<button type="submit" class="btn btn-success ">Enregistrer les modifications</button>
+						</div>
+						</div>
+
+		</form>
+		</div>
+	</div>
+
+
+</body>
+</html>
