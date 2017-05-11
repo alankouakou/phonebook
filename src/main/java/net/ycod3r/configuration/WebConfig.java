@@ -1,4 +1,4 @@
-package com.allianzafrica.configuration;
+package net.ycod3r.configuration;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -10,14 +10,13 @@ import org.thymeleaf.spring4.SpringTemplateEngine;
 import org.thymeleaf.spring4.templateresolver.SpringResourceTemplateResolver;
 import org.thymeleaf.spring4.view.ThymeleafViewResolver;
 import org.thymeleaf.templateresolver.ITemplateResolver;
-import com.allianzafrica.interceptors.AuthInterceptor;
-import com.allianzafrica.service.DepartmentConverter;
-import com.allianzafrica.service.GroupService;
 
+import net.ycod3r.interceptors.AuthInterceptor;
+import net.ycod3r.service.DepartmentConverter;
+import net.ycod3r.service.EmployeeConverter;
+import net.ycod3r.service.EmployeeService;
+import net.ycod3r.service.GroupService;
 import nz.net.ultraq.thymeleaf.LayoutDialect;
-
-import com.allianzafrica.service.EmployeeConverter;
-import com.allianzafrica.service.EmployeeService;
 
 @Configuration
 public class WebConfig extends WebMvcConfigurerAdapter {

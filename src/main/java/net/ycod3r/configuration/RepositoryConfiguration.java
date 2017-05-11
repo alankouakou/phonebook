@@ -1,4 +1,4 @@
-package com.allianzafrica.configuration;
+package net.ycod3r.configuration;
 
 import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.context.annotation.Configuration;

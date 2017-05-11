@@ -1,4 +1,4 @@
-package com.allianzafrica.validators;
+package net.ycod3r.validators;
 
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;

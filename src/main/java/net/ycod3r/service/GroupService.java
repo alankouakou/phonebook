@@ -1,4 +1,4 @@
-package com.allianzafrica.service;
+package net.ycod3r.service;
 
 import java.util.List;
 
@@ -8,9 +8,9 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
-import com.allianzafrica.model.Department;
-import com.allianzafrica.repositories.DepartmentRepository;
-import com.allianzafrica.repositories.EmployeeRepository;
+import net.ycod3r.model.Department;
+import net.ycod3r.repositories.DepartmentRepository;
+import net.ycod3r.repositories.EmployeeRepository;
 
 @Service
 public class GroupService {

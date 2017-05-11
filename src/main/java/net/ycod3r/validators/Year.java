@@ -1,4 +1,4 @@
-package com.allianzafrica.validators;
+package net.ycod3r.validators;
 
 import java.lang.annotation.Documented;
 import java.lang.annotation.ElementType;

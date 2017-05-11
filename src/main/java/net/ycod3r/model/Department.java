@@ -1,4 +1,4 @@
-package com.allianzafrica.model;
+package net.ycod3r.model;
 
 import java.io.Serializable;
 

@@ -1,4 +1,4 @@
-package com.allianzafrica.service;
+package net.ycod3r.service;
 
 import java.util.List;
 
@@ -11,8 +11,8 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
-import com.allianzafrica.model.Employee;
-import com.allianzafrica.repositories.EmployeeRepository;
+import net.ycod3r.model.Employee;
+import net.ycod3r.repositories.EmployeeRepository;
 
 @Service
 public class EmployeeService {

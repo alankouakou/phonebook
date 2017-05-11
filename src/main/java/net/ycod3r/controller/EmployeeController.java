@@ -1,4 +1,4 @@
-package com.allianzafrica.controller;
+package net.ycod3r.controller;
 
 import java.util.List;
 
@@ -17,11 +17,12 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import com.allianzafrica.configuration.DepartmentEditor;
-import com.allianzafrica.model.Department;
-import com.allianzafrica.model.Employee;
-import com.allianzafrica.service.GroupService;
-import com.allianzafrica.service.EmployeeService;
+
+import net.ycod3r.configuration.DepartmentEditor;
+import net.ycod3r.model.Department;
+import net.ycod3r.model.Employee;
+import net.ycod3r.service.EmployeeService;
+import net.ycod3r.service.GroupService;
 
 @Controller
 @RequestMapping({"/employees","/"})

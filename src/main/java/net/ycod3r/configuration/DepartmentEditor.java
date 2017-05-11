@@ -1,9 +1,9 @@
-package com.allianzafrica.configuration;
+package net.ycod3r.configuration;
 
 import java.beans.PropertyEditorSupport;
 
-import com.allianzafrica.model.Department;
-import com.allianzafrica.service.GroupService;
+import net.ycod3r.model.Department;
+import net.ycod3r.service.GroupService;
 
 public class DepartmentEditor extends PropertyEditorSupport {
 	GroupService deptService;

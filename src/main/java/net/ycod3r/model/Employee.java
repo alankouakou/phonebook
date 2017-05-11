@@ -1,4 +1,4 @@
-package com.allianzafrica.model;
+package net.ycod3r.model;
 
 import java.io.Serializable;
 
@@ -9,7 +9,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
-import com.allianzafrica.validators.Phone;
+import net.ycod3r.validators.Phone;
 
 @Entity
 public class Employee implements Serializable {

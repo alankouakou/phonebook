@@ -1,4 +1,4 @@
-package com.allianzafrica.service;
+package net.ycod3r.service;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.ui.Model;

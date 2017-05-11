@@ -1,11 +1,11 @@
-package com.allianzafrica.repositories;
+package net.ycod3r.repositories;
 
 import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import com.allianzafrica.model.Department;
-import com.allianzafrica.model.Employee;
+import net.ycod3r.model.Department;
+import net.ycod3r.model.Employee;
 
 public interface EmployeeRepository extends JpaRepository<Employee, Long> {
 

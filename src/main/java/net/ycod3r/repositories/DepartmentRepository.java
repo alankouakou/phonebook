@@ -1,8 +1,8 @@
-package com.allianzafrica.repositories;
+package net.ycod3r.repositories;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import com.allianzafrica.model.Department;
+import net.ycod3r.model.Department;
 
 public interface DepartmentRepository extends JpaRepository<Department, Long> {
 

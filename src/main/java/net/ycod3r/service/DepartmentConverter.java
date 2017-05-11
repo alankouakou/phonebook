@@ -1,8 +1,8 @@
-package com.allianzafrica.service;
+package net.ycod3r.service;
 
 import org.springframework.core.convert.converter.Converter;
 
-import com.allianzafrica.model.Department;
+import net.ycod3r.model.Department;
 
 public final class DepartmentConverter implements Converter<String, Department>{
 	

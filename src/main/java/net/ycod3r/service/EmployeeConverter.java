@@ -1,8 +1,8 @@
-package com.allianzafrica.service;
+package net.ycod3r.service;
 
 import org.springframework.core.convert.converter.Converter;
 
-import com.allianzafrica.model.Employee;
+import net.ycod3r.model.Employee;
 
 public final class EmployeeConverter implements Converter<String, Employee>{
 

@@ -1,4 +1,4 @@
-package com.allianzafrica.validators;
+package net.ycod3r.validators;
 
 import java.util.Calendar;
 import java.util.Date;

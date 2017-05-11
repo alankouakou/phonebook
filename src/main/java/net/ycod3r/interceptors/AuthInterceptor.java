@@ -1,4 +1,4 @@
-package com.allianzafrica.interceptors;
+package net.ycod3r.interceptors;
 
 import java.util.logging.Logger;
 
@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 
-import com.allianzafrica.model.Employee;
+import net.ycod3r.model.Employee;
 
 public class AuthInterceptor extends HandlerInterceptorAdapter {
 
