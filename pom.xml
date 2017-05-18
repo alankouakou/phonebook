@@ -41,6 +41,12 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
+		<!-- spring security -->
+		<dependency>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-security</artifactId>
+		</dependency>
+		
 		<!-- Validators -->
 		<dependency>
 			<groupId>org.hibernate</groupId>
@@ -92,17 +98,6 @@
 			<artifactId>webjars-locator</artifactId>
 			<version>0.30</version>
 		</dependency>
-		<dependency>
-			<groupId>org.webjars</groupId>
-			<artifactId>bootswatch</artifactId>
-			<version>3.3.7</version>
-		</dependency>
-
-		<dependency>
-			<groupId>org.webjars</groupId>
-			<artifactId>bootstrap</artifactId>
-			<version>3.3.1</version>
-		</dependency>
 
 		<!-- AdminLTE -->
 		<dependency>
@@ -123,29 +118,9 @@
 			<version>2.0.1</version>
 		</dependency>
 		<!-- JvectorMap -->
-		<dependency>
-			<groupId>org.webjars</groupId>
-			<artifactId>jvectormap</artifactId>
-			<version>2.0.1</version>
-		</dependency>
 		<!-- slimScroll -->
-		<dependency>
-			<groupId>org.webjars</groupId>
-			<artifactId>jQuery-slimScroll</artifactId>
-			<version>1.3.8</version>
-		</dependency>
 		<!-- FastClick -->
-		<dependency>
-			<groupId>org.webjars</groupId>
-			<artifactId>fastclick</artifactId>
-			<version>1.0.6</version>
-		</dependency>
 		<!-- jQuery 2.2.3 -->
-		<dependency>
-			<groupId>org.webjars</groupId>
-			<artifactId>jquery</artifactId>
-			<version>2.2.3</version>
-		</dependency>
 	</dependencies>
 
 	<build>

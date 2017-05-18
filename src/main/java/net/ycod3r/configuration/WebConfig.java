@@ -1,8 +1,16 @@
 package net.ycod3r.configuration;
 
+import javax.sql.DataSource;
+
+import org.springframework.boot.autoconfigure.jdbc.EmbeddedDataSourceConfiguration;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.format.FormatterRegistry;
+import org.springframework.jdbc.datasource.DriverManagerDataSource;
+import org.springframework.jdbc.datasource.embedded.EmbeddedDatabase;
+import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseBuilder;
+import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseType;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.servlet.ViewResolver;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
@@ -26,10 +34,24 @@ public class WebConfig extends WebMvcConfigurerAdapter {
 		return new EmployeeService();
 	}
 	
+	@Bean 
+	public BCryptPasswordEncoder passwordEncoder(){
+		return new BCryptPasswordEncoder();
+	}
+	
 	@Bean
 	public GroupService departmentService(){
 		return new GroupService();
 	}
+	
+	@Bean
+	public DataSource dataSource(){
+		EmbeddedDatabaseBuilder builder = new EmbeddedDatabaseBuilder();
+		builder.setName("phonebook.db");
+		EmbeddedDatabase db = builder.setType(EmbeddedDatabaseType.HSQL).build();
+		return db;
+	}
+	
 	
 	@Override
 	public void addInterceptors(InterceptorRegistry registry) {

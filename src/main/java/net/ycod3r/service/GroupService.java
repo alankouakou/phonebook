@@ -57,6 +57,8 @@ public class GroupService {
 	public Department findOne(long parseLong) {
 		return deptRepository.findOne(parseLong);
 	}
+	
+
 
 	
 }

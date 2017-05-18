@@ -1,16 +1,22 @@
 <!DOCTYPE html>
-<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{layout}">
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{layout2}">
 <meta charset="UTF-8"></meta>
-<head >
-<title> Home</title>
+<head>
+<title>Home</title>
 </head>
 <body>
 	<div class="container-fluid">
 		<div layout:fragment="content">
-			<button type="button" class="btn btn-md btn-warning"
-				data-toggle="modal" data-target="#myModal">
-				Nouveau Contact <span class="glyphicon glyphicon-plus"></span>
-			</button>
+			<div class="row">
+				<div class="col-lg-9">
+					<button type="button" class="btn btn-md btn-warning"
+						data-toggle="modal" data-target="#myModal">
+						Nouveau Contact <span class="glyphicon glyphicon-plus"></span>
+					</button>
+				</div>
+			</div>
+
 
 			<!-- Modal -->
 			<form action="#" class="form-horizontal" th:object="${employee1}"
@@ -76,48 +82,60 @@
 					</div>
 				</div>
 			</form>
-			<div class="col-lg-9">
-				<table class="table table-striped table-hover">
-					<thead>
-						<tr>
-							<th>Nom</th>
-							<th>Prénom</th>
-							<th>Numero long</th>
-							<th>Numero court</th>
-							<th>Mobile</th>
-							<th>Departement</th>
-							<th>Actions</th>
-						</tr>
-					</thead>
-					<tbody>
-						<tr th:each="e:${employees}">
-							<td><span th:text="${e.nom}"></span></td>
-							<td><span th:text="${e.prenom}"></span></td>
-							<td><span th:text="${e.numeroLong}"></span></td>
-							<td><span th:text="${e.numeroCourt}"></span></td>
-							<td><span th:text="${e.portable}"></span></td>
-							<td><span th:text="${e.departement.name}"></span></td>
-							<td>
-								<div class="btn-group">
-									<button type="button" class="btn btn-xs btn-info">Details</button>
-									<button type="button"
-										class="btn btn-xs btn-info dropdown-toggle"
-										data-toggle="dropdown" aria-haspopup="true"
-										aria-expanded="false">
-										<span class="caret"></span> <span class="sr-only">Toggle
-											Dropdown</span>
-									</button>
-									<ul class="dropdown-menu">
-										<li><a href="#" th:href="@{'/employees/edit/'+${e.id}}"><span
-												class="glyphicon glyphicon-edit"></span> Modifier</a></li>
-										<li><a href="#" th:href="@{'/employees/delete/'+${e.id}}"><span
-												class="glyphicon glyphicon-remove"></span> Supprimer</a></li>
-									</ul>
-								</div>
-							</td>
-						</tr>
-					</tbody>
-				</table>
+			<div class="row">
+				<div class="col-lg-9">
+					<div class="box">
+						<div class="box-header with-border">
+							<h3 class="box-title">Liste des employés</h3>
+						</div>
+						<div class="box-body">
+
+							<table class="table table-striped table-hover">
+								<thead>
+									<tr>
+										<th>Nom</th>
+										<th>Prénom</th>
+										<th>Numero long</th>
+										<th>Numero court</th>
+										<th>Mobile</th>
+										<th>Departement</th>
+										<th>Actions</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr th:each="e:${employees}">
+										<td><span th:text="${e.nom}"></span></td>
+										<td><span th:text="${e.prenom}"></span></td>
+										<td><span th:text="${e.numeroLong}"></span></td>
+										<td><span th:text="${e.numeroCourt}"></span></td>
+										<td><span th:text="${e.portable}"></span></td>
+										<td><span th:text="${e.departement.name}"></span></td>
+										<td>
+											<div class="btn-group">
+												<button type="button" class="btn btn-xs btn-primary">Details</button>
+												<button type="button"
+													class="btn btn-xs btn-primary dropdown-toggle"
+													data-toggle="dropdown" aria-haspopup="true"
+													aria-expanded="false">
+													<span class="caret"></span> <span class="sr-only">Toggle
+														Dropdown</span>
+												</button>
+												<ul class="dropdown-menu">
+													<li><a href="#"
+														th:href="@{'/employees/edit/'+${e.id}}"><span
+															class="glyphicon glyphicon-edit"></span> Modifier</a></li>
+													<li><a href="#"
+														th:href="@{'/employees/delete/'+${e.id}}"><span
+															class="glyphicon glyphicon-remove"></span> Supprimer</a></li>
+												</ul>
+											</div>
+										</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
 			</div>
 		</div>
 	</div>

@@ -65,6 +65,10 @@ public class EmployeeService {
 		return empRepository.save(emp);
 	}
 	
+	public Long count(){
+		return empRepository.count();
+	}
+	
 	@PostConstruct
 	private void initData(){
 /*

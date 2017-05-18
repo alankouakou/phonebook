@@ -4,7 +4,7 @@
 <head>
 <!--/*  Each token will be replaced by their respective titles in the resulting page. */-->
 <title layout:title-pattern=" $LAYOUT_TITLE - $CONTENT_TITLE">AAS</title>
-  <link rel="stylesheet" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}" />
+  <link rel="stylesheet" th:href="@{/webjars/bootswatch/3.3.7/flatly/bootstrap.min.css}" />
   <!-- Font Awesome -->
   <link rel="stylesheet" th:href="@{/webjars/font-awesome/css/font-awesome.min.css}" />
   <!-- Ionicons -->
@@ -15,7 +15,7 @@
   <link rel="stylesheet" th:href="@{/webjars/AdminLTE/dist/css/AdminLTE.min.css}" />
   <!-- AdminLTE Skins. Choose a skin from the css/skins
        folder instead of downloading all of them to reduce the load. -->
-  <link rel="stylesheet" th:href="@{/webjars/AdminLTE/dist/css/skins/skin-red.min.css}" />
+  <link rel="stylesheet" th:href="@{/webjars/AdminLTE/dist/css/skins/_all-skins.min.css}" />
 </head>
 <body>
 	<nav th:replace="fragments/header::header"></nav>
@@ -32,6 +32,6 @@
 
 	<div th:replace="fragments/footer::footer"></div>
 <script th:src="@{/webjars/jquery/jquery.min.js}"></script>	
-<script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+<script th:src="@{/webjars/bootswatch/3.3.7/2/js/bootstrap.min.js}"></script>
 </body>
 </html>

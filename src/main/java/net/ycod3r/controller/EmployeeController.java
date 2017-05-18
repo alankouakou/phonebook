@@ -25,7 +25,7 @@ import net.ycod3r.service.EmployeeService;
 import net.ycod3r.service.GroupService;
 
 @Controller
-@RequestMapping({"/employees","/"})
+@RequestMapping({"/"})
 public class EmployeeController {
 	
 	@Autowired
@@ -49,7 +49,7 @@ public class EmployeeController {
 		return departmentService.findAll();
 	}
 	
-	@GetMapping()
+	@GetMapping("/employees")
 	public String employees(Model model ){
 		List<Employee> employees;
 		employees = empService.findAll(new Sort(Direction.ASC,"nom"));
@@ -57,8 +57,22 @@ public class EmployeeController {
 		return "index";
 	}
 	
+	@GetMapping()
+	public String dashboard(Model model){
+		List<Employee> employees;
+		Long totalEmployees, totalDepartments;
+		
+		employees = empService.findAll(new Sort(Direction.ASC,"nom"));
+		totalEmployees = empService.count();
+		totalDepartments = departmentService.count();
+		model.addAttribute("employees",employees);
+		model.addAttribute("totalEmployees",totalEmployees);
+		model.addAttribute("totalDepartments",totalDepartments);
+		System.out.println("Total employes: " + totalEmployees);
+		return "dashboard";
+	}
 	
-	@GetMapping("/add")
+	@GetMapping("employees/add")
 	public String creerEmploye(Model model){
 		Employee emp = new Employee();
 		model.addAttribute("employee", emp);
@@ -66,7 +80,7 @@ public class EmployeeController {
 	}
 	
 	
-	@PostMapping(value = {"/add", "/save"})
+	@PostMapping(value = {"employees/add", "employees/save"})
 	public String enregistrerEmploye(@Valid @ModelAttribute("employee1") Employee emp, BindingResult bindingResult){
 		if(bindingResult.hasErrors()){
 			return "editemployee";
@@ -82,13 +96,13 @@ public class EmployeeController {
 		return "editemployee"; 
 	}
 */
-	@GetMapping("/edit/{employee}")
+	@GetMapping("employees/edit/{employee}")
 	public String editerEmployee(Employee employee, Model model){
 		return "editemployee"; 
 	}
 	
 	
-	@PostMapping("/edit")
+	@PostMapping("employees/edit")
 	public String sauverModifsEmployee(@Valid @ModelAttribute("employee") Employee employee, BindingResult bindingResult){
 		if (bindingResult.hasErrors()){
 			return "editemployee";
@@ -97,7 +111,7 @@ public class EmployeeController {
 		return "redirect:/employees"; 
 	}
 
-	@GetMapping("/delete/{id}")
+	@GetMapping("employees/delete/{id}")
 	public String supprimerEmployee(@PathVariable("id") Long id) throws Exception {
 		if (id < 33)
 			throw new NullPointerException("Suppression non autorisée!");
@@ -106,7 +120,7 @@ public class EmployeeController {
 		
 	}
 
-	@GetMapping("/test")
+	@GetMapping("employees/test")
 	public String testMethod(Model model ){
 		List<Employee> employees;
 		employees = empService.findAll(new Sort(Direction.ASC,"nom"));
