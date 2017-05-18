@@ -33,8 +33,8 @@ public class DBInitJob implements CommandLineRunner {
 			roleSvc.save(Arrays.asList(userRole, adminRole));
 		System.out.println("------------- Roles créés!! ----------------------");
 
-		User user = new User("user", passwordEncoder.encode("@llianz"), userRole, true);
-		User admin = new User("admin", passwordEncoder.encode("@llianz"), adminRole, true);
+		User user = new User("user", passwordEncoder.encode("user"), userRole, true);
+		User admin = new User("admin", passwordEncoder.encode("@dmin"), adminRole, true);
 		if (userSvc.count() == 0)
 			userSvc.save(Arrays.asList(user, admin));
 		System.out.println("------------- Users créés!! ----------------------");
