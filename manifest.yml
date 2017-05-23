@@ -1,0 +1,6 @@
+  applications:
+   - name: fonebook
+     host: fonebook
+     path: target/phonebook-0.0.1-SNAPSHOT.jar
+     memory: 512M
+     instances: 1
