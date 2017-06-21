@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import net.ycod3r.configuration.DepartmentEditor;
 import net.ycod3r.model.Department;
@@ -33,6 +34,8 @@ public class EmployeeController {
 	
 	@Autowired
 	GroupService departmentService;
+
+	private String message;
 	
 	@InitBinder
 	public void dataBinding(WebDataBinder binder){
@@ -58,11 +61,11 @@ public class EmployeeController {
 	}
 	
 	@GetMapping()
-	public String dashboard(Model model){
+	public String dashboard(Model model, @ModelAttribute("message") String message){
 		List<Employee> employees;
 		Long totalEmployees, totalDepartments;
 		
-		employees = empService.findAll(new Sort(Direction.ASC,"nom"));
+		employees = empService.findAll();
 		totalEmployees = empService.count();
 		totalDepartments = departmentService.count();
 		model.addAttribute("employees",employees);
@@ -81,12 +84,14 @@ public class EmployeeController {
 	
 	
 	@PostMapping(value = {"employees/add", "employees/save"})
-	public String enregistrerEmploye(@Valid @ModelAttribute("employee1") Employee emp, BindingResult bindingResult){
+	public String enregistrerEmploye(@Valid @ModelAttribute("employee1") Employee emp, BindingResult bindingResult, RedirectAttributes ra){
 		if(bindingResult.hasErrors()){
 			return "editemployee";
 		}
+		message = emp.getPrenom() + " "+emp.getNom()+" ajouté avec succès!";
+		ra.addFlashAttribute("message", message );
 		empService.save(emp);
-		return "redirect:/";
+		return "redirect:/employees";
 	}
 /*	
 	@GetMapping("/employees/edit/{id}")

@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import net.ycod3r.model.Department;
 import net.ycod3r.service.EmployeeService;
@@ -30,6 +31,8 @@ public class DepartmentController {
 	@Autowired
 	GroupService departmentService;
 	
+	private String message;
+	
 	
 	@ModelAttribute("dept")
 	protected Department initDepartment(){
@@ -42,7 +45,7 @@ public class DepartmentController {
 	}
 	
 	@GetMapping()
-	public String departements(Model model ){
+	public String departements(Model model, @ModelAttribute("message") String message ){
 		List<Department> departements;
 		departements = departmentService.findAll(new Sort(Direction.ASC,"name"));
 		model.addAttribute("departements",departements);
@@ -66,10 +69,12 @@ public class DepartmentController {
 	
 	
 	@PostMapping(value = {"/add", "/save"})
-	public String enregistrerDepartement(@Valid @ModelAttribute("dept") Department dept, BindingResult result){
+	public String enregistrerDepartement(@Valid @ModelAttribute("dept") Department dept, BindingResult result, RedirectAttributes ra){
 		if (result.hasErrors()){
 			return "editdepartment";
 		} 
+		message = "Département " + dept.getName() + " ajouté avec succès!";
+		ra.addFlashAttribute("message", message);
 		departmentService.save(dept);
 		return "redirect:/departements";
 	}

@@ -55,6 +55,13 @@
 					</div>
 				</div>
 			</form>
+			<div class="row" th:unless="${#strings.isEmpty(message)}">
+				<div class="col-lg-9 col-md-9">
+					<div class="callout callout-success">
+						<span th:text="${message}"></span>
+					</div>
+				</div>
+			</div>
 			<div class="row">
 				<div class="col-lg-9">
 					<div class="box ">

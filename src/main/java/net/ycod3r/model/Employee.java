@@ -1,6 +1,7 @@
 package net.ycod3r.model;
 
 import java.io.Serializable;
+import java.util.Locale;
 
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -8,6 +9,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+
+import org.thymeleaf.util.StringUtils;
 
 import net.ycod3r.validators.Phone;
 
@@ -18,7 +21,6 @@ public class Employee implements Serializable {
 	private Long id;
 	private String prenom;
 	private String nom;
-	private String numeroLong;
 	@Phone
 	private String numeroCourt;
 	@Phone
@@ -34,11 +36,10 @@ public class Employee implements Serializable {
 
 
 
-	public Employee(String prenom, String nom, String numeroLong, String numeroCourt, String portable) {
+	public Employee(String prenom, String nom, String numeroCourt, String portable) {
 		super();
 		this.prenom = prenom;
-		this.nom = nom;
-		this.numeroLong = numeroLong;
+		this.nom = StringUtils.toUpperCase(nom, Locale.FRENCH);
 		this.numeroCourt = numeroCourt;
 		this.portable = portable;
 	}
@@ -64,7 +65,7 @@ public class Employee implements Serializable {
 
 
 	public void setPrenom(String prenom) {
-		this.prenom = prenom;
+		this.prenom = StringUtils.capitalizeWords(prenom);
 	}
 
 
@@ -76,21 +77,8 @@ public class Employee implements Serializable {
 
 
 	public void setNom(String nom) {
-		this.nom = nom;
+		this.nom = StringUtils.toUpperCase(nom,Locale.FRENCH);
 	}
-
-
-
-	public String getNumeroLong() {
-		return numeroLong;
-	}
-
-
-
-	public void setNumeroLong(String numeroLong) {
-		this.numeroLong = numeroLong;
-	}
-
 
 
 	public String getNumeroCourt() {

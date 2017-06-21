@@ -37,13 +37,15 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 		http.authorizeRequests()
-		.antMatchers("/")
-		.authenticated()
-		.antMatchers("/departements/**","/employees/**")
+		.antMatchers("/webjars/**").permitAll()
+		.antMatchers("/departements**","/employees**")
 		.hasRole("ADMIN")
+		.antMatchers("/**")
+		.authenticated()
 		.anyRequest().permitAll()
 		.and()
 		.formLogin().loginPage("/login")
+		.permitAll()
 		.and()
 		.logout().logoutSuccessUrl("/login?logout")
 		.and()

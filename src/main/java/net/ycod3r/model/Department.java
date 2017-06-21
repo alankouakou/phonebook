@@ -1,11 +1,14 @@
 package net.ycod3r.model;
 
 import java.io.Serializable;
+import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.validation.constraints.Size;
 
 @Entity
@@ -17,6 +20,9 @@ public class Department implements Serializable {
 	
 	@Size(min=2,message="Nom trop court (min=3 caractères)")
 	private String name;
+	
+	@OneToMany(mappedBy="departement",cascade=CascadeType.PERSIST)
+	private List<Employee> employees;
 
 	
 	public Department() {
@@ -46,6 +52,22 @@ public class Department implements Serializable {
 
 	public void setName(String name) {
 		this.name = name;
+	}
+
+
+
+	public List<Employee> getEmployees() {
+		return employees;
+	}
+
+
+
+	public void setEmployees(List<Employee> employees) {
+		for(Employee e : employees){
+			e.setDepartement(this);
+		}
+		this.employees = employees;
+		
 	}
 
 }

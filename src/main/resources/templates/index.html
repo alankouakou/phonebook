@@ -82,8 +82,15 @@
 					</div>
 				</div>
 			</form>
+			<div class="row" th:unless="${#strings.isEmpty(message)}">
+				<div class="col-lg-9 col-md-9 col-xs-12">
+				<div class="callout callout-success">
+					<span th:text="${message}" ></span>
+				</div>
+				</div>
+			</div>			
 			<div class="row">
-				<div class="col-lg-9">
+				<div class="col-lg-9 col-md-9 col-xs-12">
 					<div class="box">
 						<div class="box-header with-border">
 							<h3 class="box-title">Liste des employés</h3>
@@ -95,23 +102,21 @@
 									<tr>
 										<th>Nom</th>
 										<th>Prénom</th>
-										<th>Numero long</th>
-										<th>Numero court</th>
+										<th class="hidden-xs">Numero court</th>
 										<th>Mobile</th>
-										<th>Departement</th>
-										<th>Actions</th>
+										<th class="hidden-xs">Departement</th>
+										<th class="hidden-xs">Actions</th>
 									</tr>
 								</thead>
 								<tbody>
 									<tr th:each="e:${employees}">
-										<td><span th:text="${e.nom}"></span></td>
-										<td><span th:text="${e.prenom}"></span></td>
-										<td><span th:text="${e.numeroLong}"></span></td>
-										<td><span th:text="${e.numeroCourt}"></span></td>
+										<td><span th:text="${#strings.toUpperCase(e.nom)}"></span></td>
+										<td><span th:text="${#strings.capitalize(e.prenom)}"></span></td>
+										<td class="hidden-xs"><span th:text="${e.numeroCourt}"></span></td>
 										<td><span th:text="${e.portable}"></span></td>
-										<td><span th:text="${e.departement.name}"></span></td>
+										<td class="hidden-xs"><span th:text="${e.departement.name}"></span></td>
 										<td>
-											<div class="btn-group">
+											<div class="hidden-xs btn-group">
 												<button type="button" class="btn btn-xs btn-primary">Details</button>
 												<button type="button"
 													class="btn btn-xs btn-primary dropdown-toggle"
